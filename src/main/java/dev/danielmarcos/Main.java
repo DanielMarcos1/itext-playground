@@ -1,5 +1,6 @@
 package dev.danielmarcos;
 
+import dev.danielmarcos.model.DocumentConversor;
 import dev.danielmarcos.model.DocumentEditor;
 
 import java.io.IOException;
@@ -8,6 +9,7 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
+        /**
         DocumentEditor documentEditor = new DocumentEditor();
 
         Map<String, String> replacements = new HashMap<>();
@@ -21,12 +23,25 @@ public class Main {
         replacements.put("EDITABLE_VALOR", "1583");
 
         try {
-            String inputFilePath = "src/main/resources/input/contract.docx";
-            String outputFilePath = "src/main/resources/output/edited_contract.docx";
+            String inputFilePath = "src/main/resources/contract.docx";
+            String outputFilePath = "src/main/resources/edited_contract.docx";
 
             documentEditor.editDocument(inputFilePath, outputFilePath, replacements);
 
             System.out.println("Documento editado");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+         */
+
+        DocumentConversor documentConversor = new DocumentConversor();
+
+        String pdfPath = "src/main/resources/pdf/contract.pdf";
+        String docxPath = "src/main/resources/docx/contract.docx";
+
+        try {
+            documentConversor.pdftoDocx(pdfPath, docxPath);
+            System.out.println("PDF convertido para DOCX com sucesso!");
         } catch (IOException e) {
             e.printStackTrace();
         }
